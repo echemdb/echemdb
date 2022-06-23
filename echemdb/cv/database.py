@@ -291,3 +291,80 @@ class Database:
             "number of entries": len(self),
             "materials": self.materials(),
         }
+
+    def plot(self, x_label="E", y_label="j", force_plot=False):
+        r"""
+        Return a plot with all entries of the database.
+        The default plot is a cyclic voltammogram ('j vs E').
+        When `j` is not defined `I` is used instead.
+
+        EXAMPLES::
+
+            >>> entry = Entry.create_examples()[0]
+            >>> entry.plot()
+            Figure(...)
+
+        The plot can also be returned with custom axis units available in the resource::
+
+            >>> entry.plot(x_label='t', y_label='E')
+            Figure(...)
+
+        The plot with axis units of the original figure can be obtained by first rescaling the entry::
+
+            >>> rescaled_entry = entry.rescale('original')
+            >>> rescaled_entry.plot()
+            Figure(...)
+
+        """
+        if len(self) > 10:
+            if force_plot == False:
+                raise Exception('The database has more than 10 entries. To plot all entries anyway, set `force_plot` to `True`')
+
+        import plotly.graph_objects
+
+        fig = plotly.graph_objects.Figure()
+
+        # TODO:: Rescale database. Implement `database.rescale` function
+        # Add units as a parameter to the function for rescaling
+        # Implement rescaling different voltage axis
+        # Verify that all x and y columen names are identical, i.e., j and I can not be plotted in the same figure.
+        
+        for entry in self:
+
+            x_label = entry._normalize_field_name(x_label)
+            y_label = entry._normalize_field_name(y_label)
+
+            fig.add_trace(
+                plotly.graph_objects.Scatter(
+                    x=self.df[x_label],
+                    y=self.df[y_label],
+                    mode="lines",
+                    name=f"Fig. {self.source.figure}: {self.source.curve}",
+                )
+            )
+
+        # get a reference electrode from any entry. This should be fine once the database is normalized to a specific reference.
+        def reference(label):
+            if label == "E":
+                return f" vs. {self.package.get_resource('echemdb').schema.get_field(label)['reference']}"
+
+            return ""
+
+        def axis_label(label):
+            return f"{label} [{self.field_unit(label)}{reference(label)}]"
+
+        fig.update_layout(
+            template="simple_white",
+            showlegend=True,
+            autosize=True,
+            width=600,
+            height=400,
+            margin=dict(l=70, r=70, b=70, t=70, pad=7),
+            xaxis_title=axis_label(x_label),
+            yaxis_title=axis_label(y_label),
+        )
+
+        fig.update_xaxes(showline=True, mirror=True)
+        fig.update_yaxes(showline=True, mirror=True)
+
+        return fig
