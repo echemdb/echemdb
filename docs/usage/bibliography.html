@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bibliography &mdash; echemdb 0.6.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Create database locally" href="local_database.html" />
+    <link rel="prev" title="Entry interactions" href="entry_interactions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            echemdb
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database_interactions.html">Database interaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entry_interactions.html">Entry interactions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local_database.html">Create database locally</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">echemdb</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Bibliography</li>
+  
+  
+    
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/echemdb/echemdb/blob/main/doc/usage/bibliography.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bibliography">
+<h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline"></a></h1>
+<p>The bibliography to all entries is stored as a pybtex database <code class="docutils literal notranslate"><span class="pre">db.bibliography</span></code>,
+which contains bibtex entries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">echemdb.cv.cv_database</span> <span class="kn">import</span> <span class="n">CVDatabase</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">CVDatabase</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">bibliography</span><span class="o">.</span><span class="n">entries</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each entry in the echemdb databse can be cited.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entry</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;engstfeld_2018_polycrystalline_17743_f4b_1&#39;</span><span class="p">]</span>
+<span class="n">entry</span><span class="o">.</span><span class="n">citation</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">)</span> <span class="c1"># other available backends: &#39;latex&#39; or &#39;markdown&#39;. &#39;text&#39; is default.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;A. K. Engstfeld et al. Polycrystalline and single-crystal Cu electrodes: influence of experimental conditions on the electrochemical properties in alkaline media. Chem.-Eur. J, 24(67):17743–17755, 2018.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Individual <code class="docutils literal notranslate"><span class="pre">db.bibliography</span></code> entries can be accessed with the citation key associated with an echemdb entry.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bibtex_key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">citation_key</span>
+<span class="n">bibtex_key</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;engstfeld_2018_polycrystalline_17743&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">entry</span><span class="o">.</span><span class="n">citation</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;A. K. Engstfeld et al. Polycrystalline and single-crystal Cu electrodes: influence of experimental conditions on the electrochemical properties in alkaline media. Chem.-Eur. J, 24(67):17743–17755, 2018.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">citation_entry</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">bibliography</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">bibtex_key</span><span class="p">]</span>
+<span class="n">citation_entry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entry(&#39;article&#39;,
+  fields=[
+    (&#39;title&#39;, &#39;Polycrystalline and single-crystal Cu electrodes: influence of experimental conditions on the electrochemical properties in alkaline media&#39;), 
+    (&#39;journal&#39;, &#39;Chem.-Eur. J&#39;), 
+    (&#39;volume&#39;, &#39;24&#39;), 
+    (&#39;number&#39;, &#39;67&#39;), 
+    (&#39;pages&#39;, &#39;17743--17755&#39;), 
+    (&#39;year&#39;, &#39;2018&#39;), 
+    (&#39;abstract&#39;, &#39;Single and polycrystalline Cu electrodes serve as model systems for the study of the electroreduction of CO2, CO and nitrate, or for corrosion studies; even so, there are very few reports combining electrochemical measurements with structural characterization. Herein both the electrochemical properties of polycrystalline Cu and single crystal Cu(1 0 0) electrodes in alkaline solutions (0.1 m KOH and 0.1 m NaOH) are investigated. It is demonstrated that the pre-treatment of the electrodes plays a crucial role in determining their electrochemical properties. Scanning tunneling microscopy, X-ray photoelectron spectroscopy and cyclic voltammetry are performed on Cu(1 0 0) electrodes prepared under UHV conditions; it is shown that the electrochemical properties of these atomically well-defined electrodes are distinct from electrodes prepared by other methods. Also highlighted is the significant role of residual oxygen and electrolyte convection in influencing the electrochemical properties.&#39;)],
+  persons=OrderedCaseInsensitiveDict([(&#39;author&#39;, [Person(&#39;Engstfeld, Albert K&#39;), Person(&#39;Maagaard, Thomas&#39;), Person(&#39;Horch, Sebastian&#39;), Person(&#39;Chorkendorff, Ib&#39;), Person(&#39;Stephens, Ifan EL&#39;)])]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Individiual <code class="docutils literal notranslate"><span class="pre">fields</span></code> are accessible, such as <code class="docutils literal notranslate"><span class="pre">year</span></code> or <code class="docutils literal notranslate"><span class="pre">title</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">citation_entry</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2018&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">citation_entry</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Polycrystalline and single-crystal Cu electrodes: influence of experimental conditions on the electrochemical properties in alkaline media&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The authors are accessible via <code class="docutils literal notranslate"><span class="pre">persons</span></code>. Read more in the <a class="reference external" href="https://docs.pybtex.org/api/parsing.html?highlight=persons#pybtex.database.Entry.persons">pybtex documentation</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">citation_entry</span><span class="o">.</span><span class="n">persons</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Person(&#39;Engstfeld, Albert K&#39;),
+ Person(&#39;Maagaard, Thomas&#39;),
+ Person(&#39;Horch, Sebastian&#39;),
+ Person(&#39;Chorkendorff, Ib&#39;),
+ Person(&#39;Stephens, Ifan EL&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">citation_entry</span><span class="o">.</span><span class="n">persons</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person(&#39;Engstfeld, Albert K&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">citation_entry</span><span class="o">.</span><span class="n">persons</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Engstfeld, Albert K
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="entry_interactions.html" class="btn btn-neutral float-left" title="Entry interactions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="local_database.html" class="btn btn-neutral float-right" title="Create database locally" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, the echemdb authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
