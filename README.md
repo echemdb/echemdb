@@ -1,6 +1,13 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/echemdb/echemdb/0.6.0?urlpath=tree%2Fdoc%2Fusage%2Fentry_interactions.md)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6502901.svg)](https://doi.org/10.5281/zenodo.6502901)
 
+# WARNING: THIS PROJECT IS DEPRECATED
+
+Development of this project continues in the module named [unitpackage](https://github.com/echemdb/unitpackage).
+The functionality is more generic, allowing for the interaction with frictionless datapackages in general and
+creation of domain specific modules. See the [unitpackages' documentation](https://echemdb.github.io/unitpackage/) for details.
+
+----
 The echemdb Python package can interact with a database of
 [frictionless datapackages](https://frictionlessdata.io/)
 containing electrochemical data following [echemdb's metadata schema](https://github.com/echemdb/metadata-schema).
